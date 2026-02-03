@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huffman Compressor & Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Huffman Archiver</h1>
+            <p class="subtitle">Data Structures & Algorithms Project</p>
+        </header>
+
+        <div class="upload-card">
+            <div id="drop-zone">
+                <p>Drag & drop a <strong>.txt file</strong> here</p>
+                <p>or <strong>click to browse</strong></p>
+            </div>
+            <input type="file" id="file-input" accept=".txt" style="display:none;">
+        </div>
+
+        <div id="stats" style="display:none;">
+            
+            <button id="download-btn" class="btn" style="grid-column: 1 / span 2; padding: 15px; margin-bottom: 20px; background-color: #34a853; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1rem;">
+                ⬇️ Download Compressed File (.txt)
+            </button>
+
+            <div class="card">
+                <h3>Frequencies</h3>
+                <div class="table-container" style="max-height: 250px; overflow-y: auto;">
+                    <table id="freq-table">
+                        <thead>
+                            <tr>
+                                <th>Char</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Huffman Codes</h3>
+                <div class="table-container" style="max-height: 250px; overflow-y: auto;">
+                    <table id="code-table">
+                        <thead>
+                            <tr>
+                                <th>Char</th>
+                                <th>Binary</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="viz-container" style="display:none; margin-top:20px;">
+            <h3>Tree Visualization</h3>
+            <p style="font-size: 0.8rem; color: #666;">Path: Left = 0, Right = 1</p>
+            <div id="tree-viz" style="background: white; border-radius: 8px; margin-top: 10px;"></div>
+        </div>
+    </div>
+
+    <script src="logic.js"></script>
+</body>
+</html>
